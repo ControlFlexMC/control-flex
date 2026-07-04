@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: CurseForge Download
+    url: https://www.curseforge.com/minecraft/mc-mods/control-flex
+    about: Download the latest version of ControlFlex from CurseForge.
+  - name: CurseForge Discussions
+    url: https://www.curseforge.com/minecraft/mc-mods/control-flex
+    about: For general questions and discussions, use CurseForge comments.
