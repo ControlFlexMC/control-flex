@@ -1,3 +1,5 @@
+> [中文版](release-notes.zh.md)
+
 # Control Flex 0.8.8-beta1
 
 **Features:**

@@ -1,3 +1,5 @@
+> [中文版](release-notes.zh.md)
+
 ## Control Flex 0.8.7
 
 This version represents a major effort to make Control Flex more adaptable to a wider variety of mods. Although I've done my best to keep existing local configurations working, there is still a chance that some settings from previous versions may break. If that happens, I apologize in advance — most issues can be resolved by reconfiguring the affected bindings.
