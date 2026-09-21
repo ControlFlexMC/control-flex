@@ -3,8 +3,7 @@
 **Flexible Controller Mapping for Minecraft Java Edition**
 
 [![CurseForge](https://img.shields.io/badge/CurseForge-Download-orange?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/control-flex)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-blue)](https://www.minecraft.net/)
+[![License](https://img.shields.io/badge/License-LGPL--3.0-blue.svg)](LICENSE)
 
 [中文文档](README_zh.md)
 
@@ -23,6 +22,7 @@ Download the latest release from **[CurseForge](https://www.curseforge.com/minec
 | 1.21.11   | —     | ✅        | ✅      |
 | 26.1.2    | —     | ✅        | ✅      |
 | 26.2      | —     | ✅        | ✅      |
+| 26.3      | —     | ✅        | ✅      |
 
 ## Features
 
@@ -41,14 +41,14 @@ Download the latest release from **[CurseForge](https://www.curseforge.com/minec
 
 ## Requirements
 
-| Component       | Version                                    |
-| --------------- | ------------------------------------------ |
-| Minecraft       | 1.20.1 / 1.21.1 / 1.21.11 / 26.1.2 / 26.2  |
-| Forge Loader    | 47.4.4+ (1.20.1)                           |
-| NeoForge Loader | 21.1.233+                                  |
-| Fabric Loader   | 0.16.10+                                   |
-| Java            | 17+ (1.20.1) / 21+ (1.21+) / 25+(1.21.11+) |
-| SDL3            | Bundled (Windows / Linux / macOS)          |
+| Component       | Version                                          |
+| --------------- | ------------------------------------------------ |
+| Minecraft       | 1.20.1 / 1.21.1 / 1.21.11 / 26.1.2 / 26.2 / 26.3 |
+| Forge Loader    | 47.4.4+ (1.20.1)                                 |
+| NeoForge Loader | 21.1.233+                                        |
+| Fabric Loader   | 0.16.10+                                         |
+| Java            | 17+ (1.20.1) / 21+ (1.21+) / 25+(1.21.11+)       |
+| SDL3            | Bundled (Windows / Linux / macOS)                |
 
 ## Installation
 
@@ -90,12 +90,15 @@ Tested with:
 
 - Xbox One Controller
 - Xbox Elite 2 Controller (with paddle/back button support)
+- PS5 DualSense Wireless Controller
 
 ControlFlex uses SDL3 for gamepad input, which supports a wide range of controllers in theory. However, only the above models have been verified. If you have tested other controllers successfully, please [share your experience](../../issues) — it helps expand the known-compatible list.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). SDL3 is bundled under the [zlib License](LICENSE_SDL3).
+Copyright © 2026 ControlFlexMC.
+
+This project is licensed under the [GNU Lesser General Public License v3.0](LICENSE). SDL3 is bundled under the [zlib License](LICENSE_SDL3).
 
 ## Credits
 
