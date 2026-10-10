@@ -3,7 +3,7 @@
 **Flexible Controller Mapping for Minecraft Java Edition**
 
 [![CurseForge](https://img.shields.io/badge/CurseForge-Download-orange?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/control-flex)
-[![License](https://img.shields.io/badge/License-LGPL--3.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [中文文档](README_zh.md)
 
@@ -96,9 +96,7 @@ ControlFlex uses SDL3 for gamepad input, which supports a wide range of controll
 
 ## License
 
-Copyright © 2026 ControlFlexMC.
-
-This project is licensed under the [GNU Lesser General Public License v3.0](LICENSE). SDL3 is bundled under the [zlib License](LICENSE_SDL3).
+This project is licensed under the [MIT License](LICENSE). SDL3 is bundled under the [zlib License](LICENSE_SDL3).
 
 ## Credits
 
