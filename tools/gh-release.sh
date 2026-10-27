@@ -150,6 +150,29 @@ for jar in "${ALL_JARS[@]}"; do
   fi
 done
 
+# ---------- Sort the valid jars: newest MC version first ----------
+# The glob above collects jars in lexicographic order, which misreads every
+# version: "1.10.2" < "1.8.9" and "1.7.10" > "1.21.11" as strings. Sort on the
+# mc<version> token in the filename instead, numerically and DESCENDING, so the
+# listing reads newest first and the two oldest supported lines (1.8.9, 1.7.10)
+# land at the bottom. A jar whose name carries no mc token sinks to 0.0.0.
+SORTED_JARS=()
+while IFS=$'\t' read -r _sorted_key jar; do
+  SORTED_JARS+=("$jar")
+done < <(
+  for jar in "${VALID_JARS[@]}"; do
+    base="$(basename "$jar")"
+    ver="0.0.0"
+    if [[ "$base" =~ -mc([0-9]+(\.[0-9]+)+)- ]]; then
+      ver="${BASH_REMATCH[1]}"
+    fi
+    IFS='.' read -r a b c <<< "$ver"
+    printf '%03d.%03d.%03d\t%s\n' "${a:-0}" "${b:-0}" "${c:-0}" "$jar"
+  done | sort -r
+)
+VALID_JARS=("${SORTED_JARS[@]}")
+unset SORTED_JARS
+
 # ---------- Print validation results ----------
 echo "Version: $VERSION"
 echo "Repo: $REPO"
