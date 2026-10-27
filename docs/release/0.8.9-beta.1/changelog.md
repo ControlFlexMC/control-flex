@@ -71,7 +71,7 @@ The board is no longer a ChatScreen-only dock: ChatScreen keeps its embedded key
 ## 6. Fixes
 
 - **#9 — PlayStation glyphs and names.** Auto glyph skin now resolves from the last connected pad (persisted in the selection config) and classifies Sony hardware by VID, so a PS4 pad no longer borrows the PS5 or Xbox look. Names follow the skin too: Create on DualSense / PS5, SHARE on DualShock / PS4.
-- **#10 — one-shot jump in water.** PRESS / TAP / RELEASE / LONG_PRESS / DOUBLE_* released `keyJump` after a single tick, while vanilla spends only a *held* jump on the fluid swim-up. The press is now sustained until vanilla stops consuming it — out of the fluid, no longer affected by fluids, or shallow enough for the ground jump — or the 10-tick budget runs out; every cleanup path releases the synthetic key.
+- **#10 — one-shot jump in water.** PRESS / TAP / RELEASE / LONG_PRESS / DOUBLE\_* released `keyJump` after a single tick, while vanilla spends only a *held* jump on the fluid swim-up. The press is now sustained until vanilla stops consuming it — out of the fluid, no longer affected by fluids, or shallow enough for the ground jump — or the 10-tick budget runs out; every cleanup path releases the synthetic key.
 - A GUI-layer virtual-KBM binding no longer fires on top of the board's keycap; one RT press used to delete two characters.
 - D-Pad Right no longer discards the highlighted suggestion: caret moves that cannot move the caret no longer notify the responder, so autocomplete applies the selected row.
 - The keyboard opens on widgets that own their `EditBox` (Sophisticated Storage's search box), and the board no longer lands on other text fields.

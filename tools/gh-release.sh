@@ -9,7 +9,7 @@
 #   1) Requires a version argument (e.g. 0.8.8-beta1)
 #   2) Reads the release notes from docs/release/<version>/release-notes.md as the release body
 #   3) Collects jar artifacts from artifacts/<version>/
-#   4) Validates each artifact by the mod version embedded in the jar (Forge/NeoForge: META-INF/*.mods.toml; Fabric: fabric.mod.json)
+#   4) Validates each artifact by the mod version embedded in the jar (Forge/NeoForge: META-INF/*.mods.toml; legacy Forge: mcmod.info; Fabric: fabric.mod.json)
 #   5) Uploads only the validated jars to the GitHub release (tag = v<version>)
 #   6) If the release for that tag does not exist, creates it using release-notes.md; otherwise uploads directly
 #
@@ -88,7 +88,7 @@ fi
 
 # ---------- Read mod version from jar embedded metadata ----------
 extract_jar_version() {
-  local jar="$1" ver="" entries=""
+  local jar="$1" ver="" entries="" mcmod="mcmod.info"
   # Capture the entry list once.  Note: we must NOT pipe `unzip -Z1 | grep -q`
   # under pipefail — grep -q closes the pipe early and unzip gets SIGPIPE (141),
   # making the pipeline report failure even on a match.
@@ -105,6 +105,14 @@ extract_jar_version() {
       inmods && /^[[:space:]]*version[[:space:]]*=/ {sub(/^[[:space:]]*version[[:space:]]*=[[:space:]]*/, ""); gsub(/"/, ""); gsub(/[[:space:]]/, ""); print; exit}' || true)"
   elif grep -qx 'fabric.mod.json' <<<"$entries"; then
     ver="$(unzip -p "$jar" fabric.mod.json 2>/dev/null | jq -r '.version // empty' 2>/dev/null || true)"
+  elif grep -qxE '(META-INF/)?mcmod\.info' <<<"$entries"; then
+    # Legacy Forge (MC <= 1.12.2): mcmod.info at the jar root, or under META-INF
+    # on some 1.10.x builds.  It is a JSON array of mod entries.
+    if grep -qx 'META-INF/mcmod.info' <<<"$entries"; then
+      mcmod="META-INF/mcmod.info"
+    fi
+    ver="$(unzip -p "$jar" "$mcmod" 2>/dev/null | jq -r '
+      if type == "array" then (.[0].version // empty) else (.version // empty) end' 2>/dev/null || true)"
   fi
   printf '%s' "$ver"
 }
