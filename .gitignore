@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# WorkBuddy workspace data
+.workbuddy/
+
 # Compiled class file
 *.class
 
