@@ -3,7 +3,7 @@
 **Minecraft Java 版灵活手柄映射模组**
 
 [![CurseForge](https://img.shields.io/badge/CurseForge-下载-orange?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/control-flex)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-LGPL--3.0-blue.svg)](LICENSE)
 
 [English](README.md)
 
@@ -98,7 +98,9 @@ ControlFlex 使用 SDL3 进行手柄输入，理论上支持广泛的游戏手�
 
 ## 许可证
 
-本项目使用 [MIT 许可证](LICENSE)。SDL3 以 [zlib 许可证](LICENSE_SDL3) 内置分发。
+版权所有 © 2026 ControlFlexMC。
+
+本项目使用 [GNU LGPL v3.0 许可证](LICENSE)。SDL3 以 [zlib 许可证](LICENSE_SDL3) 内置分发。
 
 ## 致谢
 
